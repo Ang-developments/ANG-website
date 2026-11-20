@@ -1,6 +1,7 @@
 const portrait = document.querySelector('.portrait-motion');
 const video = portrait.querySelector('video');
 let requested = false;
+let activationPointer = '';
 
 function startPortrait() {
   if (requested) return;
@@ -26,10 +27,14 @@ portrait.addEventListener('pointerenter', event => {
 portrait.addEventListener('pointerleave', event => {
   if (event.pointerType === 'mouse') stopPortrait();
 });
+portrait.addEventListener('pointerdown', event => {
+  activationPointer = event.pointerType;
+});
 portrait.addEventListener('click', event => {
-  if (event.detail !== 0 && (event.pointerType === 'mouse' ||
-      (!event.pointerType && matchMedia('(hover: hover)').matches))) return;
-  if (requested) stopPortrait();
+  // Some browsers report a touch activation as a MouseEvent.
+  const pointer = event.detail === 0 ? '' : activationPointer || event.pointerType;
+  activationPointer = '';
+  if (requested && pointer !== 'mouse') stopPortrait();
   else startPortrait();
 });
 video.addEventListener('playing', () => {
