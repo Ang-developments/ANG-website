@@ -102,7 +102,7 @@ h1{font-size:clamp(36px,4vw,68px);font-weight:600;letter-spacing:-.055em}
   .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 </style>
-<link rel="stylesheet" href="back.css"><link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="brand-navigation.css"><link rel="stylesheet" href="ang-footer.css"></head>
+<link rel="stylesheet" href="back.css"><link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="brand-navigation.css"><link rel="stylesheet" href="ang-footer.css?v=layout"></head>
 <body>
 <div class="page">
 <header class="work-header">
@@ -128,13 +128,16 @@ h1{font-size:clamp(36px,4vw,68px);font-weight:600;letter-spacing:-.055em}
 
 <footer class="ang-footer" aria-label="Site footer">
 <div class="ang-footer-top">
+<div class="ang-footer-nav">
 <nav class="ang-footer-links" aria-label="Explore"><span>Explore</span><a href="index.html">Home</a><a href="selected-work.html">Selected Work</a><a href="index.html#studio">Our Studio</a><a href="team.html">Our Team</a></nav>
 <nav class="ang-footer-links" aria-label="Projects"><span>Projects</span><a href="project-01.html">Santa Maria House</a><a href="project-02.html">Casa Botanica</a></nav>
-<div class="ang-footer-contact"><a href="index.html#contact">Let’s get in touch ↗</a><p>Start a conversation with our studio.</p><a href="https://wa.me/306944566430">WhatsApp ↗</a></div>
-<div class="ang-footer-social"><a class="ang-footer-social-link" href="https://wa.me/306944566430" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.2 7.3c-.5 0-1.2.7-1.2 1.6 0 2.8 4.2 6.7 6.9 6.7.9 0 1.8-.6 1.8-1.3l-2.2-1.1-.9 1c-1.4-.6-2.7-1.8-3.3-3.2l.9-.9-1-2.6Z"/></svg></a><a class="ang-footer-social-link" href="https://www.instagram.com/ang.associates/" target="_blank" rel="noopener noreferrer" aria-label="Angelopoulos &amp; Associates on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a></div>
 </div>
-<div class="ang-footer-bottom"><span>Angelopoulos &amp; Associates<br>All rights are reserved.</span><a href="policy-and-cookies.pdf" download="Policy and cookies.pdf">Privacy &amp; Cookies</a><a href="#">Back to top ↑</a></div>
-<div class="ang-footer-mark"><img src="ang-logo-high-resolution.png" width="1800" height="880" alt="ANG" loading="lazy" decoding="async"></div>
+<div class="ang-footer-mark"><img src="ang-logo-high-resolution.png" width="1800" height="880" alt="Angelopoulos &amp; Associates" loading="lazy" decoding="async"></div>
+<div class="ang-footer-details">
+<div class="ang-footer-contact"><a href="index.html#contact">Let’s get in touch ↗</a><p>Start a conversation with our studio.</p><div class="ang-footer-contact-row"><a href="https://wa.me/306944566430">WhatsApp ↗</a><div class="ang-footer-social"><a class="ang-footer-social-link" href="https://wa.me/306944566430" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.2 7.3c-.5 0-1.2.7-1.2 1.6 0 2.8 4.2 6.7 6.9 6.7.9 0 1.8-.6 1.8-1.3l-2.2-1.1-.9 1c-1.4-.6-2.7-1.8-3.3-3.2l.9-.9-1-2.6Z"/></svg></a><a class="ang-footer-social-link" href="https://www.instagram.com/ang.associates/" target="_blank" rel="noopener noreferrer" aria-label="Angelopoulos &amp; Associates on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a></div></div></div>
+<div class="ang-footer-bottom"><span>Angelopoulos &amp; Associates<br>All rights are reserved.</span><a href="policy-and-cookies.pdf" download="Policy and cookies.pdf">Privacy &amp; Cookies</a></div>
+</div>
+</div>
 </footer>
 <a class="policy-download" href="policy-and-cookies.pdf" download="Policy and cookies.pdf">Download privacy &amp; cookie policy</a>
 <aside class="cookies-card" aria-labelledby="cookie-heading" hidden>
@@ -146,6 +149,6 @@ h1{font-size:clamp(36px,4vw,68px);font-weight:600;letter-spacing:-.055em}
     <button type="button" class="cookie-button reject" data-cookie-choice="rejected">Reject</button>
   </div>
 </aside>
-<script src="cookie-card.js"></script>
+<script src="cookie-card.js?v=footer-layout"></script>
 </body>
 </html>

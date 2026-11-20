@@ -8,7 +8,7 @@ settings.className = 'cookie-settings';
 settings.textContent = 'Cookie settings';
 
 if (footer) {
-  footer.insertBefore(settings, footer.querySelector('a:last-child'));
+  footer.append(settings);
   settings.addEventListener('click', () => {
     cookieCard.hidden = false;
     cookieCard.querySelector('.cookie-button').focus({ preventScroll: true });
