@@ -59,3 +59,9 @@ header a.go-back{border:0;box-shadow:none}
   opacity: 0;
 }
 .portrait-motion[data-playing] video { opacity: 1 }
+
+
+.portrait--aziz img {
+  object-position: center top;
+  transform: scale(1.22);
+}
