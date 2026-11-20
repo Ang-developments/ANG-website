@@ -509,7 +509,7 @@ textarea.cx-in{resize:none;overflow:hidden}
 <div class="cx-step" data-step="4"><h2 class="cx-q">When shall we reach out?</h2>
 <div class="cx-when"><div class="cal"><div class="cal-h"><button type="button" class="cal-prev" aria-label="Previous month">&lsaquo;</button><b class="cal-title" aria-live="polite"></b><button type="button" class="cal-next" aria-label="Next month">&rsaquo;</button></div><div class="cal-g" role="grid"></div><p class="cal-note">Available Monday to Friday, 9:30 &ndash; 18:30.</p></div>
 <div class="slots-wrap"><p class="slots-label"></p><div class="slots"></div></div></div>
-<p class="cx-err" role="alert"></p><div class="cx-nav"><button class="cx-back" type="button">&larr; Back</button><button class="cx-next cx-send" type="button">Open email draft<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+<p class="cx-send-status" role="status"></p><p class="cx-err" role="alert"></p><div class="cx-nav"><button class="cx-back" type="button">&larr; Back</button><button class="cx-next cx-send" type="button">Send enquiry<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
 
 <div class="cx-step" data-step="5"><div class="cx-thanks"><h2 class="cx-q">Thank you for sending your request, we are one step closer to building your Home!</h2><p class="cx-recap"></p></div></div>
 
@@ -643,11 +643,53 @@ function next(){
  else if(cur===3){var d=detI.value.trim(),okv=isMail(D.method)?/^\S+@\S+\.\S+$/.test(d):(d.replace(/\D/g,"").length>=7);
   if(!okv){err(3,isMail(D.method)?"Please enter a valid email address.":"Please enter a valid phone number.");return}D.detail=d;err(3,"");show(4)}
  else if(cur===4){if(!D.date){err(4,"Please choose a day.");return}if(!D.time){err(4,"Please choose a time.");return}err(4,"");submit()}}
-function submit(){
+var sending=false;
+var sendButton=root.querySelector(".cx-send");
+var backButton=steps[4].querySelector(".cx-back");
+var sendLabel=sendButton.firstChild;
+var sendStatus=steps[4].querySelector(".cx-send-status");
+async function submit(){
+ if(sending)return;
  var date=D.date.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",year:"numeric",month:"long"});
- var body=["Name: "+D.name,"Project: "+D.topic,"Preferred contact: "+D.method,"Contact details: "+D.detail,"Preferred date and time: "+date+" at "+D.time].join("\n");
- window.location.href="mailto:info@ang-associates.gr,angelo@ang-associates.gr,dimitris@ang-associates.gr?subject="+encodeURIComponent("Studio enquiry")+"&body="+encodeURIComponent(body);
- err(4,"Your email app will open with your details. Send the draft to complete your enquiry.");
+ var payload={
+  name:D.name,
+  project:D.topic,
+  preferred_contact:D.method,
+  preferred_date_and_time:date+" at "+D.time+" (Greece time)",
+  _subject:"Angelopoulos & Associates — New website enquiry",
+  _cc:"angelo@ang-associates.gr,dimitris@ang-associates.gr",
+  _template:"table",
+  _url:"https://ang-associates.gr/"
+ };
+ if(isMail(D.method)){payload.email=D.detail;payload._replyto=D.detail}
+ else{payload.phone=D.detail}
+ sending=true;
+ sendButton.disabled=true;
+ backButton.disabled=true;
+ sendLabel.nodeValue="Sending…";
+ sendStatus.textContent="Sending your enquiry…";
+ var controller=new AbortController();
+ var timeout=setTimeout(function(){controller.abort()},20000);
+ try{
+  var response=await fetch("https://formsubmit.co/ajax/info@ang-associates.gr",{
+   method:"POST",
+   headers:{"Content-Type":"application/json","Accept":"application/json"},
+   signal:controller.signal,
+   body:JSON.stringify(payload)
+  });
+  var result=await response.json();
+  if(!response.ok||!(result.success===true||result.success==="true"))throw Error("Submission rejected");
+  show(5);
+ }catch(error){
+  err(4,"We couldn’t confirm your enquiry. Please try again or email info@ang-associates.gr.");
+ }finally{
+  clearTimeout(timeout);
+  sending=false;
+  sendButton.disabled=false;
+  backButton.disabled=false;
+  sendLabel.nodeValue="Send enquiry";
+  sendStatus.textContent="";
+ }
 }
 root.querySelectorAll(".cx-next").forEach(function(b){b.addEventListener("click",next)});
 root.querySelectorAll(".cx-back").forEach(function(b){b.addEventListener("click",function(){if(cur>0)show(cur-1)})});
