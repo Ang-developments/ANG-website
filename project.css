@@ -1,0 +1,11 @@
+*{box-sizing:border-box}body{margin:0;color:#121212;background:white;font:15px Arial,sans-serif}header{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:13px}a{color:inherit;text-decoration:none}header a:first-child{font-weight:600}.track{height:calc(100svh - 48px);display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;padding-inline:12px}.track::-webkit-scrollbar{display:none}.track>*{flex:none}.track figure{margin:0;position:relative;height:min(100%,90vw)}.track img{display:block;width:auto;height:100%;max-width:none}.notes{height:100%;width:clamp(275px,34vw,620px);padding:clamp(24px,3vw,56px);display:flex;flex-direction:column;justify-content:space-between}.notes small{font-size:12px}.notes h1{font:500 clamp(32px,4vw,72px)/1 Arial;letter-spacing:-.055em;margin:0}@media(max-width:640px){.notes{height:min(100%,90vw)}}
+
+.notes{box-sizing:border-box;width:clamp(320px,52vw,800px)}.notes small{align-self:flex-start}.track{min-width:0}.track::after{content:"";flex:none;width:clamp(12px,5vw,72px)}
+
+.santa-maria .notes{height:100%;width:clamp(340px,48vw,760px);border:0;gap:32px;overflow-y:auto}
+.santa-maria .notes h1{font-size:clamp(30px,3vw,54px);margin:26px 0 14px}
+.santa-maria .notes p{font-size:clamp(17px,1.45vw,24px);line-height:1.3;letter-spacing:-.025em;margin:0}
+.santa-maria .track figure{height:100%}
+@media(max-width:640px){.santa-maria .notes{width:88vw;padding:24px}.santa-maria .notes p{font-size:17px}}
+
+.track{gap:clamp(12px,1.2vw,20px);overscroll-behavior-x:contain}

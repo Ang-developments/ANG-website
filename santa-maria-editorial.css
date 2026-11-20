@@ -1,0 +1,68 @@
+.project-editorial {
+  max-width: 1600px;
+  margin-inline: auto;
+  padding: clamp(2rem, 7vw, 7rem) clamp(16px, 4vw, 64px) 0;
+}
+.project-editorial h1 {
+  margin: 0;
+  padding-bottom: .22em;
+  border-bottom: 1px solid #222;
+  font: 400 clamp(2.8rem, 7.4vw, 8rem)/.95 Arial, sans-serif;
+  letter-spacing: -.065em;
+}
+.project-intro {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(1rem, 6vw, 6rem);
+  padding-block: 1.1rem clamp(2.5rem, 7vw, 7rem);
+}
+.project-facts { margin: 0; max-width: 16rem; }
+.project-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid #bbb;
+}
+.project-facts dt { color: #555; }
+.project-facts dd { margin: 0; text-align: right; }
+.project-lead p, .project-notes p { max-width: 65ch; margin: 0; line-height: 1.6; }
+.editorial-thumbs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 3px;
+}
+.editorial-thumbs .board-photo { flex: 0 0 clamp(54px, 7vw, 104px); width: auto; aspect-ratio: 4/3; }
+.editorial-thumbs img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.editorial-thumbs [aria-pressed="true"] { outline: 1px solid #111; outline-offset: 1px; }
+.editorial-feature {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #f0efed;
+  cursor: zoom-in;
+}
+.editorial-feature img { display: block; width: 100%; aspect-ratio: 3/2; object-fit: contain; }
+.editorial-controls {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border-bottom: 1px solid #222;
+  font-variant-numeric: tabular-nums;
+}
+.editorial-count { margin-right: auto; }
+.editorial-controls button { background: transparent; border: 0; padding: .55rem .65rem; font-size: 1.35rem; cursor: pointer; color: inherit; }
+.editorial-gallery button:focus-visible { outline: 2px solid #111; outline-offset: 2px; }
+.project-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-block: 1rem; }
+@media (min-width: 760px) { .editorial-thumbs { justify-content: end; } }
+@media (max-width: 640px) {
+  .project-intro, .project-notes { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* Keep the first thumbnails reachable when a project has a longer photo strip. */
+@media (min-width: 760px) {
+  .editorial-thumbs { justify-content: safe end; }
+}
+.project-notes > :only-child { grid-column: 1 / -1; }

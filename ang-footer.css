@@ -1,0 +1,82 @@
+.ang-footer { margin:clamp(48px,8vw,128px) clamp(16px,3.5vw,64px) 24px; background:transparent; border-radius:clamp(24px,5vw,80px) clamp(24px,5vw,80px) 0 0; overflow:hidden; color:#111; font-family:Arial,sans-serif; }
+.ang-footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:32px; padding:clamp(32px,5vw,80px) clamp(24px,6vw,96px) clamp(40px,6vw,90px); }
+.ang-footer .ang-footer-intro { margin:0; font-size:clamp(13px,1.1vw,18px); line-height:1.4; }
+.ang-footer .ang-footer-links { display:flex; flex-direction:column; gap:9px; align-items:flex-start; }
+.ang-footer a { color:inherit; text-decoration:none; border:0; font-size:12px; font-weight:400; padding:0; }
+.ang-footer a:hover { text-decoration:underline; text-underline-offset:4px; }
+.ang-footer-links > span { font-size:12px; margin-bottom:7px; }
+.ang-footer .ang-footer-links a { color:#646464; }
+.ang-footer .ang-footer-contact > a { font-size:clamp(15px,1.4vw,22px); }
+.ang-footer-contact p { font-size:11px; color:#777; margin:8px 0 24px; }
+.ang-footer-mark { width:100%; aspect-ratio:1800 / 560; overflow:hidden; }
+.ang-footer .ang-footer-mark img { display:block; width:100%; max-width:none; height:auto; filter:brightness(0); margin:0; padding:0; }
+.ang-footer-bottom { display:flex; align-items:center; gap:24px; padding:22px clamp(24px,6vw,96px); font-size:10px; color:#777; background:transparent; }
+.ang-footer .ang-footer-bottom a { font-size:10px; }
+.ang-footer-bottom a:last-child { margin-left:auto; }
+@media(max-width:650px) { .ang-footer-top { grid-template-columns:1fr 1fr; gap:30px 20px; } .ang-footer-intro { grid-column:1/-1; } .ang-footer-contact { grid-column:1/-1; } .ang-footer-bottom { flex-wrap:wrap; gap:14px; } }
+
+.ang-footer {
+  margin-inline: 0;
+  border-radius: 0;
+}
+.ang-footer-top {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, .75fr) auto;
+  align-items: start;
+  gap: clamp(16px, 2.6vw, 46px);
+  padding: clamp(40px, 7vw, 100px) 8% clamp(16px, 1.5vw, 28px);
+}
+.ang-footer-mark { aspect-ratio: 1800 / 620; }
+.ang-footer-social {
+  display: flex;
+  gap: clamp(8px, .8vw, 14px);
+  align-self: center;
+}
+.ang-footer .ang-footer-social-link {
+  display: grid;
+  place-items: center;
+  width: clamp(44px, 3.6vw, 64px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+}
+.ang-footer-social-link svg {
+  width: 48%;
+  height: 48%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ang-footer .ang-footer-social-link:hover { background: #393939; }
+@media (max-width: 720px) {
+  .ang-footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ang-footer-contact { grid-column: auto; }
+  .ang-footer-social { justify-self: end; }
+}
+
+.ang-footer--after-contact { margin-top: 0; }
+.ang-footer--after-contact .ang-footer-top {
+  padding-top: clamp(12px, 1.5vw, 24px);
+}
+
+/* Trim the transparent canvas around the artwork so the mark reaches the edges. */
+.ang-footer-mark {
+  position: relative;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.ang-footer .ang-footer-mark img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 113%;
+  transform: translate(-50%, -2.65%);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.ang-footer { margin-bottom: 0; padding-bottom: 0; border: 0; }

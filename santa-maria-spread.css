@@ -1,0 +1,236 @@
+.portfolio-spreads .track {
+  --gallery-tile-size: clamp(100px, 34vw, 280px);
+  height: auto;
+  min-height: calc(100svh - 48px);
+  align-items: start;
+  gap: clamp(8px, 1vw, 14px);
+  padding: 20px clamp(14px, 3vw, 42px);
+  background: #fff;
+  scrollbar-width: thin;
+  scrollbar-color: #aaa9a4 #fff;
+}
+.portfolio-spreads .track::-webkit-scrollbar { display: block; height: 7px; }
+.residence-board {
+  display: grid;
+  width: min(88vw, 1120px);
+  gap: clamp(10px, 1.6vw, 24px);
+  padding: clamp(18px, 4vw, 56px);
+  background: #fff;
+}
+.board-cover {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-areas: "index ." "plan copy";
+  grid-template-rows: auto minmax(0, 1fr);
+  align-items: end;
+}
+.board-index { grid-area: index; }
+.board-index span { font-size: clamp(54px, 8vw, 118px); line-height: .9; letter-spacing: -.075em; font-weight: 300; }
+.board-index p { margin: 12px 0 0; font-size: 12px; line-height: 1.5; color: #555; }
+.board-floor-plan { grid-area: plan; align-self: end; }
+.board-copy { grid-area: copy; }
+.board-copy h1 { margin: 0 0 10px; font-size: clamp(19px, 2.2vw, 32px); font-weight: 500; letter-spacing: -.035em; }
+.board-copy p { margin: 0; max-width: 43ch; font-size: clamp(13px, 1.1vw, 16px); line-height: 1.55; }
+.board-gallery { width: max-content; grid-template-columns: repeat(2, var(--gallery-tile-size)); align-items: center; }
+.santa-maria .residence-board figure { height: auto; min-width: 0; min-height: 0; }
+.santa-maria .residence-board img { width: 100%; height: auto; max-width: 100%; object-fit: contain; }
+@media (min-width: 760px) and (min-height: 680px) {
+  .portfolio-spreads .track { --gallery-tile-size: clamp(220px, calc(50svh - 116px), 320px); height: calc(100svh - 48px); min-height: 0; }
+  .residence-board { height: 100%; }
+  .board-gallery { grid-template-rows: repeat(2, var(--gallery-tile-size)); align-content: center; align-items: stretch; }
+  .board-floor-plan { align-self: stretch; }
+  .santa-maria .residence-board img { height: 100%; aspect-ratio: auto; object-position: center; }
+  .santa-maria .board-floor-plan img { object-position: left bottom; }
+}
+@media (max-width: 650px) {
+  .board-cover { grid-template-columns: minmax(0,1fr); grid-template-areas: "index" "plan" "copy"; grid-template-rows: auto; }
+}
+
+.board-story { width: min(88vw, 1120px); grid-template-columns: minmax(0,.85fr) minmax(0,1.6fr); }
+.board-story-copy { align-self: center; max-width: 32ch; }
+.board-story-copy h2 { margin: 0 0 12px; font-size: clamp(19px,2vw,28px); font-weight: 500; }
+.board-story-copy p { font-size: clamp(13px,1.05vw,15px); line-height: 1.55; }
+.board-photo-strip { display: flex; align-self: center; gap: 18px; }
+.board-photo-grid { display: grid; grid-template: repeat(2, var(--gallery-tile-size)) / repeat(2, var(--gallery-tile-size)); gap: inherit; }
+.board-photo { position: relative; display: block; width: var(--gallery-tile-size); aspect-ratio: 1; padding: 0; border: 0; background: #f4f4f2; color: #fff; cursor: zoom-in; text-align: left; overflow: hidden; }
+.santa-maria .board-gallery .board-photo img { height: var(--gallery-tile-size); aspect-ratio: auto; object-fit: cover; filter: grayscale(1); transition: filter .35s ease; }
+.board-photo-detail { position: absolute; inset: auto 0 0; display: grid; gap: 4px; padding: 22px 12px 12px; background: linear-gradient(transparent,#000d); font-size: 12px; opacity: 0; transition: opacity .25s ease; }
+.board-photo:is(:hover,:focus-visible) .board-photo-detail { opacity: 1; }
+.board-photo:focus-visible { outline: 2px solid #252525; outline-offset: -2px; }
+.project-lightbox { padding: 0; border: 0; background: #fff; color: #191919; max-width: min(94vw,1400px); }
+.project-lightbox::backdrop { background: #000c; }
+.project-lightbox img { display: block; max-width: 100%; max-height: 82svh; object-fit: contain; }
+.project-lightbox p { margin: 0; padding: 10px 16px; font-size: 14px; }
+.project-lightbox-close { position: absolute; top: 8px; right: 8px; width: 38px; height: 38px; border: 0; border-radius: 50%; background: #fff; color: #111; font-size: 25px; cursor: pointer; }
+@media (min-width:760px) and (min-height:680px) {
+  .board-story { grid-template-rows: minmax(0,1fr); }
+}
+@media (max-width:650px) {
+  .board-story { grid-template-columns: minmax(0,1fr); }
+}
+@media (hover:none) {
+  .board-photo-detail { opacity: 1; }
+  .board-photo-detail > span { display: none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .board-photo-detail,.santa-maria .board-photo img { transition: none; }
+}
+
+.board-text-square {
+  width: min(100%, 260px);
+  aspect-ratio: 1;
+  display: grid;
+  align-content: center;
+  gap: .65em;
+  text-align: justify;
+  hyphens: auto;
+}
+.board-text-square p { margin: 0; font-size: clamp(12px, 1vw, 14px); line-height: 1.5; }
+
+.board-text-square { width: min(100%, 310px); }
+.board-text-square p { font-size: clamp(14px, 1.2vw, 17px); }
+.santa-maria .board-gallery .board-photo:is(:hover, :focus-visible) img { filter: grayscale(0); }
+
+
+.board-cover { width: min(96vw, 1380px); padding-inline: clamp(16px, 2.3vw, 34px); grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+.board-cover .board-copy { justify-items: start; display: grid; }
+.santa-maria .board-floor-plan img { object-position: left bottom; }
+@media (min-width: 760px) and (min-height: 680px) {
+  .board-cover .board-index span { font-size: clamp(48px, 6.5vw, 88px); }
+  .board-cover .board-text-square { aspect-ratio: auto; }
+}
+@media (max-width: 650px) {
+  .board-cover { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* The offset title and continuous text column follow the editorial reference. */
+.house-title {
+  margin: 0;
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: -.065em;
+  text-transform: uppercase;
+}
+.board-story .board-copy {
+  border-inline-start: 1px solid #aaa;
+  padding-inline-start: 16px;
+  text-align: justify;
+  hyphens: auto;
+}
+.board-story .board-copy p {
+  max-width: none;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.4;
+}
+.board-story .board-copy p + p { margin-top: .8em; }
+
+@media (min-width: 760px) {
+  .board-cover { width: min(48vw, 680px); padding-inline-end: 0; grid-template-columns: 1fr; grid-template-areas: "index" "plan"; }
+  .santa-maria .board-floor-plan img { object-position: right bottom; }
+  .board-story {
+    width: auto;
+    grid-template-columns: 305px 405px max-content;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px 24px;
+    padding: 0 12px 24px 4px;
+    align-items: stretch;
+  }
+  .house-title { grid-area: 1 / 1; align-self: end; }
+  .board-story .board-copy { grid-area: 1 / 2 / 3; align-self: center; }
+  .board-story .board-gallery-content { grid-area: 1 / 3 / 3 / 4; }
+}
+@media (max-width: 759px) {
+  .board-story .board-copy { grid-area: auto; }
+  .board-story { width: max-content; grid-template-columns: minmax(0, 1fr); padding-inline: 14px; }
+  .board-story > :not(.board-gallery-content) { max-width: min(76vw, 420px); }
+  .board-story .board-text-square p { font-size: 19px; line-height: 1.45; }
+}
+
+.board-gallery-content {
+  display: grid;
+  justify-items: center;
+  align-self: center;
+  row-gap: 16px;
+}
+.board-gallery-content .board-elevations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.santa-maria .board-gallery-content .board-elevations img {
+  width: var(--gallery-tile-size);
+  height: clamp(64px, 10svh, 108px);
+  object-fit: contain;
+}
+
+@media (min-width: 760px) {
+  .casa-botanica .house-title {
+    align-self: start;
+    margin-block-start: clamp(24px, 9svh, 96px);
+  }
+}
+
+.botanica-more {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #0008;
+  color: white;
+  font-size: clamp(24px, 4vw, 48px);
+}
+
+/* Keep the two title lines inside their own column, clear of the copy. */
+.casa-botanica .house-title {
+  width: min(100%, 285px);
+  max-width: 100%;
+}
+.casa-botanica .house-title span { display: block; white-space: nowrap; }
+.casa-botanica .casa-title-line {
+  font-size: clamp(70px, 12vw, 106px);
+  line-height: .9;
+  letter-spacing: -.065em;
+}
+.casa-botanica .botanica-title-line {
+  margin-top: 8px;
+  font-size: clamp(34px, 5.8vw, 51px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+/* Expanded photography: one large image, with instant navigation. */
+.project-lightbox.stack-viewer {
+  width: 100vw; max-width: 100vw; height: 100svh; max-height: 100svh;
+  margin: 0; padding: 0; overflow: hidden; background: #fff;
+}
+.stack-viewer[open] { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.stack-viewer .project-lightbox-close { z-index: 30; top: 20px; right: 24px; }
+.photo-stack { position: relative; width: 100%; height: 78svh; touch-action: pan-y pinch-zoom; }
+.photo-stack-card {
+  position: absolute; left: 50%; top: 50%; width: min(82vw, 1440px); height: 72svh;
+  border: 0; padding: 10px; border-radius: 12px; background: #fff;
+  box-shadow: none; cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: none;
+}
+.stack-viewer .photo-stack-card img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
+.photo-stack-card.is-current { cursor: grab; }
+.photo-stack-card.is-outside { visibility: hidden; pointer-events: none; }
+.photo-stack-card:focus-visible { outline: 2px solid #222; outline-offset: 4px; }
+.stack-viewer p { z-index: 20; text-align: center; max-width: 80vw; }
+.photo-stack-controls { display: flex; align-items: center; gap: 24px; z-index: 20; padding: 8px 0 18px; font-size: 12px; }
+.photo-stack-controls button { border: 0; background: transparent; font-size: 24px; padding: 8px 16px; cursor: pointer; }
+.photo-stack-controls button:disabled { opacity: .25; cursor: default; }
+@media (max-width: 650px) {
+  .photo-stack { height: 76svh; }
+  .photo-stack-card { width: 88vw; height: 64svh; padding: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .photo-stack-card { transition: none; } }
+
+@media (min-width: 760px) {
+  .santa-maria-story .board-copy,
+  .santa-maria-story .board-gallery-content {
+    align-self: start;
+  }
+}

@@ -1,0 +1,8 @@
+a.go-back{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;padding:.75rem 1.2rem;border-radius:999px;position:relative;overflow:hidden;isolation:isolate;background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(27,34,36,.18);color:#1b2224;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 24px rgba(16,20,26,.10);font:500 .85rem/1 Arial,sans-serif;white-space:nowrap;transition:background .3s,box-shadow .3s}
+a.go-back::before{content:"";position:absolute;inset:-50% -10%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));transform:translateX(-20%)}
+a.go-back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;animation:back-nudge 3s ease-in-out infinite}
+a.go-back:hover{background:rgba(255,255,255,.85);box-shadow:inset 0 1px 0 white,0 10px 26px rgba(16,20,26,.15);border-color:rgba(27,34,36,.28)}
+a.go-back:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+@keyframes back-nudge{0%,65%,100%{transform:translateX(0)}78%{transform:translateX(-3px)}90%{transform:translateX(0)}}
+@media(max-width:640px){a.go-back{font-size:.75rem;padding:.65rem .85rem}}
+@media(prefers-reduced-motion:reduce){a.go-back svg{animation:none}a.go-back{transition:none}}
