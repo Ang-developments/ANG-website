@@ -383,17 +383,6 @@ textarea.cx-in{resize:none;overflow:hidden}
   text-shadow: 0 1px 3px rgba(255, 255, 255, .25);
 }
 #studio .studio-visual .stack { margin: 0; z-index: 1; }
-#studio .studio-copy { column-count: 2; column-gap: clamp(1.5rem, 3vw, 3rem); }
-#studio .studio-copy .studio-text { margin: 0 0 1em; text-align: left; }
-@media (max-width: 1000px) {
-  #studio .studio-grid { grid-template-columns: minmax(0, 1fr); }
-  #studio .studio-copy { grid-column: 1; grid-row: auto; }
-  #studio .studio-visual { max-width: 24rem; }
-}
-@media (max-width: 640px) {
-  #studio .studio-copy { column-count: 1; }
-  #studio .studio-copy .studio-text { font-size: 1rem; }
-}
 #studio .ph video { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 #studio .studio-portrait { container-type: size; }
 #studio .studio-portrait img { position: absolute; inset: 50% auto auto 50%; width: 100cqh; height: 100cqw; max-width: none; transform: translate(-50%, -50%) rotate(90deg); object-position: center 58%; }
@@ -437,7 +426,8 @@ textarea.cx-in{resize:none;overflow:hidden}
 }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="ang-footer.css"></head>
+<link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="ang-footer.css"><link rel="stylesheet" href="our-studio.css">
+</head>
 <body>
 <header class="top" id="top">
 <a class="brand" href="#home" aria-label="Angelopoulos &amp; Associates, home"><img decoding="async" src="asset-665c89d90742198f.webp" alt="Angelopoulos &amp; Associates" width="300" height="146"></a>
@@ -487,12 +477,12 @@ textarea.cx-in{resize:none;overflow:hidden}
     </span>
   </span>
 </p>
-<section class="sec" id="studio"><div class="studio-grid"><div class="studio-visual"><h2 class="contact-title"><span>The idea</span><span>behind</span><em class="team-ink">our studio</em></h2><div class="stack" role="group" aria-label="Studio photos"><button class="ph" type="button" data-p="0" aria-label="Studio video, activate for next photo"><video src="studio-opening.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video><span class="frame-footer"><span>01</span><span class="social-marks" aria-hidden="true"><svg viewBox="0 0 104 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20 3 12C-2 4 6 1 11 7c5-6 13-3 8 5Z"/><path d="M31 19l1-4a8 8 0 1 1 4 4Z"/><path d="m55 8 18-5-5 18-4-8-9-5Zm9 5 9-10"/><path d="M89 4h10v16l-5-4-5 4Z"/></svg></span></span></button><button class="ph studio-portrait" type="button" data-p="1" aria-label="Studio photo 2 of 3, activate for next photo"><img decoding="async" src="studio-dsc03380.webp" alt=""><span class="frame-footer"><span>02</span><span class="social-marks" aria-hidden="true"><svg viewBox="0 0 104 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20 3 12C-2 4 6 1 11 7c5-6 13-3 8 5Z"/><path d="M31 19l1-4a8 8 0 1 1 4 4Z"/><path d="m55 8 18-5-5 18-4-8-9-5Zm9 5 9-10"/><path d="M89 4h10v16l-5-4-5 4Z"/></svg></span></span></button><button class="ph" type="button" data-p="2" aria-label="Studio video 3 of 3, return to first video"><video src="studio-third.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video></button></div></div>
-<div class="studio-copy"><p class="studio-text">At the core of our studio’s practice is a simple conviction: the most compelling architecture does not compete with its environment—it belongs to it. We create refined, innovative residences that bring contemporary luxury into quiet, effortless harmony with the natural world. Rejecting the idea of architecture as an imposed object, we approach every commission as an act of listening and framing. Through disciplined proportions, honest tactile materials, and carefully choreographed sightlines, we design spaces where comfort, stillness, and beauty emerge naturally from an intimate connection to the surrounding landscape.</p>
-<p class="studio-text">With an established body of work across Paros and Antiparos, our creative process always begins with a profound respect for the islands’ distinctive character, ecology, and fragile beauty. Before a single line is drawn, we immerse ourselves in the site—studying its natural contours, rock formations, native flora, solar path, and the shifting rhythm of the Aegean winds. Rather than forcing a predetermined aesthetic onto the land, we allow the topography and microclimate to dictate the architecture’s footprint, orientation, and volume. Courtyards are carved to offer shelter from the summer <em>Meltemi</em>, apertures are positioned to capture cross-breezes and frame uninterrupted horizons, and structures are terraced gently into the hillside so they sit lightly within the terrain.</p>
-<p class="studio-text">Our design language draws deeply from the timeless wisdom of Cycladic vernacular—an architectural heritage shaped by necessity, clarity, and restraint. We reinterpret that simplicity through a contemporary lens, pairing clean modern geometry and structural precision with centuries-old local craftsmanship. In close collaboration with island stonemasons, carpenters, and artisans, we work with a restrained palette of local stone, lime-washed renders, weathered timber, and raw earth tones. These materials are chosen not only for their sensory warmth, but for their ability to age gracefully—absorbing the sharp Mediterranean light by day, softening into warm shadows at dusk, and gathering character as they weather alongside the sea and wind.</p>
-<p class="studio-text">Equally central to our work is the fluidity between interior and exterior life. In the Cyclades, the boundary between inside and out is naturally porous; our architecture celebrates that threshold. Living spaces extend seamlessly onto shaded pergolas, sunken lounges, and quiet stone terraces, turning the open sky and the Aegean coastline into the true rooms of the home. Every transition is designed to slow down the pace of daily life, inviting moments of solitude, gathering, and sensory awareness.</p>
-<p class="studio-text">Ultimately, our vision is to create enduring places that feel both unmistakably contemporary and deeply rooted in their setting. We craft private sanctuaries defined by spatial calm, effortless functionality, and understated luxury—homes that enrich the way people inhabit the landscape while honoring, protecting, and preserving the raw, elemental qualities that make Paros and Antiparos extraordinary.</p></div></div></section>
+<section class="sec" id="studio"><div class="studio-grid"><div class="studio-copy">
+<h2>The idea behind our studio</h2>
+<p class="studio-text">We design homes shaped by the land and light of Paros and Antiparos.</p>
+<p class="studio-text">Local stone, sheltered terraces and framed views connect each home to its setting.</p>
+<a class="studio-read-more" href="our-studio.html">Read more<span class="studio-sr-only"> about our studio</span></a>
+</div><div class="studio-visual"><div class="stack" role="group" aria-label="Studio photos"><button class="ph" type="button" data-p="0" aria-label="Studio video, activate for next photo"><video src="studio-opening.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video><span class="frame-footer"><span>01</span><span class="social-marks" aria-hidden="true"><svg viewBox="0 0 104 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20 3 12C-2 4 6 1 11 7c5-6 13-3 8 5Z"/><path d="M31 19l1-4a8 8 0 1 1 4 4Z"/><path d="m55 8 18-5-5 18-4-8-9-5Zm9 5 9-10"/><path d="M89 4h10v16l-5-4-5 4Z"/></svg></span></span></button><button class="ph studio-portrait" type="button" data-p="1" aria-label="Studio photo 2 of 3, activate for next photo"><img decoding="async" src="studio-dsc03380.webp" alt=""><span class="frame-footer"><span>02</span><span class="social-marks" aria-hidden="true"><svg viewBox="0 0 104 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20 3 12C-2 4 6 1 11 7c5-6 13-3 8 5Z"/><path d="M31 19l1-4a8 8 0 1 1 4 4Z"/><path d="m55 8 18-5-5 18-4-8-9-5Zm9 5 9-10"/><path d="M89 4h10v16l-5-4-5 4Z"/></svg></span></span></button><button class="ph" type="button" data-p="2" aria-label="Studio video 3 of 3, return to first video"><video src="studio-third.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video></button></div></div></div></section>
 <section class="cx-sec" id="contact" aria-label="Contact"><div class="cx" id="cx">
 <div class="cx-top"><h2 class="contact-title" aria-label="Let’s get in touch"><span>LET’S <em>get</em></span><span><em>in</em> TOUCH</span></h2><span class="cx-count" aria-hidden="true">01 / 05</span></div>
 <div class="cx-bar" aria-hidden="true"><i></i></div>
