@@ -646,7 +646,7 @@ function next(){
 function submit(){
  var date=D.date.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",year:"numeric",month:"long"});
  var body=["Name: "+D.name,"Project: "+D.topic,"Preferred contact: "+D.method,"Contact details: "+D.detail,"Preferred date and time: "+date+" at "+D.time].join("\n");
- window.location.href="mailto:info@ang-associates.gr?subject="+encodeURIComponent("Studio enquiry")+"&body="+encodeURIComponent(body);
+ window.location.href="mailto:info@ang-associates.gr,angelo@ang-associates.gr,dimitris@ang-associates.gr?subject="+encodeURIComponent("Studio enquiry")+"&body="+encodeURIComponent(body);
  err(4,"Your email app will open with your details. Send the draft to complete your enquiry.");
 }
 root.querySelectorAll(".cx-next").forEach(function(b){b.addEventListener("click",next)});
