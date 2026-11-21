@@ -99,15 +99,17 @@
   font: 1rem/1.6 "Inter Tight", system-ui, sans-serif;
 }
 
+.studio-page > .project-header { height: auto; }
+
 .studio-essay {
   width: min(100% - 4rem, 68rem);
-  margin: clamp(8rem, 14vw, 13rem) auto clamp(4rem, 10vw, 9rem);
+  margin: clamp(.5rem, 1.6vw, 1.5rem) auto clamp(4rem, 10vw, 9rem);
 }
 
 .studio-essay-heading {
   display: grid;
   grid-template-columns: 1fr .7fr;
-  align-items: end;
+  align-items: start;
   gap: 2rem;
   margin-bottom: clamp(2.5rem, 7vw, 6rem);
 }
