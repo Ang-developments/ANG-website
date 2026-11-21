@@ -485,6 +485,13 @@ textarea.cx-in{resize:none;overflow:hidden}
   .ft-team { padding-top: 2rem; }
   .ft-team > .ft-btn { margin-top: clamp(1rem, 2.5vw, 2rem); }
 }
+#studio .studio-opening-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: clamp(8px, 1.1vw, 16px);
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="ang-footer.css?v=no-divider"><link rel="stylesheet" href="our-studio.css">
@@ -555,11 +562,12 @@ textarea.cx-in{resize:none;overflow:hidden}
     </span>
   </span>
 </p>
-<section class="sec" id="studio"><div class="studio-grid"><h2>The idea behind our studio</h2><div class="studio-copy">
-<p class="studio-text">We design homes shaped by the land and light of Paros and Antiparos.</p>
-<p class="studio-text">Local stone, sheltered terraces and framed views connect each home to its setting.</p>
-<a class="studio-read-more" href="our-studio.html">Read more<span class="studio-sr-only"> about our studio</span></a>
-</div><div class="studio-visual"><div class="stack" role="group" aria-label="Studio photos"><button class="ph" type="button" data-p="0" aria-label="Studio video, activate for next photo"><video src="studio-opening.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video><span class="frame-footer"><span>01</span><span class="social-marks" aria-hidden="true"><svg viewBox="0 0 104 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20 3 12C-2 4 6 1 11 7c5-6 13-3 8 5Z"/><path d="M31 19l1-4a8 8 0 1 1 4 4Z"/><path d="m55 8 18-5-5 18-4-8-9-5Zm9 5 9-10"/><path d="M89 4h10v16l-5-4-5 4Z"/></svg></span></span></button><button class="ph studio-portrait" type="button" data-p="1" aria-label="Studio photo 2 of 3, activate for next photo"><img decoding="async" src="studio-dsc03380.webp" alt=""><span class="frame-footer"><span>02</span><span class="social-marks" aria-hidden="true"><svg viewBox="0 0 104 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20 3 12C-2 4 6 1 11 7c5-6 13-3 8 5Z"/><path d="M31 19l1-4a8 8 0 1 1 4 4Z"/><path d="m55 8 18-5-5 18-4-8-9-5Zm9 5 9-10"/><path d="M89 4h10v16l-5-4-5 4Z"/></svg></span></span></button><button class="ph" type="button" data-p="2" aria-label="Studio video 3 of 3, return to first video"><video src="studio-third.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video></button></div></div></div></section>
+<section class="sec" id="studio">
+  <div class="studio-grid">
+    <h2>The idea behind our studio</h2>
+    <video class="studio-visual studio-opening-video" src="studio-opening.mp4" aria-label="Inside the ANG studio" muted loop playsinline autoplay preload="metadata"></video>
+  </div>
+</section>
 <section class="cx-sec" id="contact" aria-label="Contact"><div class="cx" id="cx">
 <div class="cx-top"><h2 class="contact-title" aria-label="Let’s get in touch"><span>LET’S <em>get</em></span><span><em>in</em> TOUCH</span></h2><span class="cx-count" aria-hidden="true">01 / 05</span></div>
 <div class="cx-bar" aria-hidden="true"><i></i></div>
@@ -768,7 +776,7 @@ topicI.addEventListener("keydown",function(e){if(e.key==="Enter"&&(e.metaKey||e.
 show(0);
 })();
 </script>
-<script src="studio-frame.js"></script>
+
 <a class="policy-download" href="policy-and-cookies.pdf" download="Policy and cookies.pdf">Download privacy &amp; cookie policy</a>
 <aside class="cookies-card" aria-labelledby="cookie-heading" hidden>
   <button type="button" class="cookie-exit" data-cookie-choice="rejected" aria-label="Dismiss and reject optional cookies">×</button>
