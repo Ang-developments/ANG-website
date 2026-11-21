@@ -352,6 +352,19 @@ textarea.cx-in{resize:none;overflow:hidden}
   margin-top: clamp(1rem, 2.2vw, 1.75rem);
   pointer-events: auto;
 }
+@media (max-width: 600px) {
+  .hero .quote .l1,
+  .hero .quote .l2 {
+    font-size: clamp(1rem, 5.1vw, 1.9rem);
+    white-space: normal;
+    text-wrap: balance;
+  }
+  .hero .quote .cta {
+    min-height: 44px;
+    padding: .65rem 1.05rem;
+    font-size: .92rem;
+  }
+}
 /* Improve contrast and readability in the vision cards. */
 #vision .sg { background: rgba(16, 20, 22, .64); }
 #vision .sg h3 { font-size: clamp(1.5rem, 8.5cqw, 2.65rem); font-weight: 500; }
