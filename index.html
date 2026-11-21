@@ -463,24 +463,20 @@ textarea.cx-in{resize:none;overflow:hidden}
 .design-line--mobile { display: none; }
 @media (max-width: 600px) {
   .design-line--desktop { display: none; }
-  #studio .studio-grid:has(> .design-line--mobile) {
-    grid-template-areas: "title" "design-line" "media" "copy";
-  }
-  #studio .design-line--mobile {
+  p.design-line--mobile {
     display: flex;
-    grid-area: design-line;
-    padding: 0;
+    padding: .75rem 1rem 1.5rem;
     font-size: clamp(1rem, 5.2vw, 1.9rem);
     font-weight: 450;
     color: var(--ink);
     gap: .25em;
   }
-  #studio .design-line--mobile .design-line-window {
+  p.design-line--mobile .design-line-window {
     flex: 0 0 auto;
     height: 1.3em;
     mask-image: none;
   }
-  #studio .design-line--mobile .design-line-words {
+  p.design-line--mobile .design-line-words {
     display: grid;
     grid-auto-rows: 1.3em;
   }
@@ -524,6 +520,19 @@ textarea.cx-in{resize:none;overflow:hidden}
 <article class="sq vision-loop-copy" aria-hidden="true"><video muted loop playsinline preload="metadata" poster="asset-321a5fb2c009ca70.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>02 / 03</span></div><div><h3>Tradition &amp; Innovation</h3><p>Dynamic relationships emerge where traditional materials meet contemporary design, creating tension, depth and a distinct architectural character.</p></div><span class="pill">Contrast</span></div></article>
 <article class="sq vision-loop-copy" aria-hidden="true"><video muted loop playsinline preload="metadata" poster="asset-78e38e331fd8b9ff.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>03 / 03</span></div><div><h3>Natural Imperfection</h3><p>We let materials speak for themselves, embracing natural variation and texture over visually perfect finishes.</p></div><span class="pill">Craft</span></div></article>
 </div></div></div></section>
+<p class="design-line design-line--mobile" aria-label="We design innovation, luxury, sustainability, enduring legacies, and Home.">
+  <span aria-hidden="true">We design</span>
+  <span class="design-line-window" aria-hidden="true">
+    <span class="design-line-words">
+      <span>innovation</span>
+      <span>luxury</span>
+      <span>sustainability</span>
+      <span>enduring legacies</span>
+      <span>Home</span>
+      <span>innovation</span>
+    </span>
+  </span>
+</p>
 <section class="ft-sec" id="featured" aria-label="Featured project and team"><div class="ft">
 <article class="ft-card"><div class="ft-img" role="img" aria-label="Sunlit building façade beneath a blue sky"></div>
 <div class="ft-copy"><span class="ft-eyebrow">Featured project</span><h2 class="ft-h">Place, light and human needs, transformed into unique spaces with character.</h2></div><a class="ft-link" href="selected-work.html">View Projects<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
@@ -542,19 +551,7 @@ textarea.cx-in{resize:none;overflow:hidden}
     </span>
   </span>
 </p>
-<section class="sec" id="studio"><div class="studio-grid"><h2>The idea behind our studio</h2><p class="design-line design-line--mobile" aria-label="We design innovation, luxury, sustainability, enduring legacies, and Home.">
-  <span aria-hidden="true">We design</span>
-  <span class="design-line-window" aria-hidden="true">
-    <span class="design-line-words">
-      <span>innovation</span>
-      <span>luxury</span>
-      <span>sustainability</span>
-      <span>enduring legacies</span>
-      <span>Home</span>
-      <span>innovation</span>
-    </span>
-  </span>
-</p><div class="studio-copy">
+<section class="sec" id="studio"><div class="studio-grid"><h2>The idea behind our studio</h2><div class="studio-copy">
 <p class="studio-text">We design homes shaped by the land and light of Paros and Antiparos.</p>
 <p class="studio-text">Local stone, sheltered terraces and framed views connect each home to its setting.</p>
 <a class="studio-read-more" href="our-studio.html">Read more<span class="studio-sr-only"> about our studio</span></a>
