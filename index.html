@@ -437,6 +437,25 @@ textarea.cx-in{resize:none;overflow:hidden}
 @media (prefers-reduced-motion: reduce) {
   .design-line-words { animation: none; }
 }
+
+.vision-loop-copy { display: none; }
+@media (max-width: 600px) {
+  #vision .ap-copy { text-align: center; }
+  #vision .ap-h { font-size: clamp(.85rem, 5.8vw, 2rem); white-space: nowrap; }
+  #vision .ap-h br { display: none; }
+  #vision .ap-rule, #vision .ap-text { margin-inline: auto; }
+  #vision .vision-carousel { overflow-x: auto; }
+  #vision .sq-row { display: flex; width: max-content; gap: 1rem; overflow: visible; scroll-snap-type: none; }
+  #vision .sq { flex: 0 0 min(78vw, 300px); }
+}
+@media (max-width: 600px) and (prefers-reduced-motion: no-preference) {
+  #vision .vision-carousel { overflow: hidden; }
+  #vision .sq-row { animation: vision-glide 42s linear infinite; }
+  #vision .vision-loop-copy { display: block; }
+}
+@keyframes vision-glide {
+  to { transform: translateX(calc(-50% - .5rem)); }
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="ang-footer.css?v=no-divider"><link rel="stylesheet" href="our-studio.css">
@@ -466,12 +485,16 @@ textarea.cx-in{resize:none;overflow:hidden}
   <p class="place">Paros – Antiparos – Attica</p>
 </section>
 <section class="ap-sec" id="vision" aria-label="Our vision"><div class="ap">
-<div class="ap-copy"><span class="ap-eyebrow">Our vision</span><h2 class="ap-h">People.<br>Place.<br>Possibility.</h2><span class="ap-rule"></span><p class="ap-text">Architecture for a more connected and considered world.</p></div>
-<div class="sq-row">
+<div class="ap-copy"><span class="ap-eyebrow">Our vision</span><h2 class="ap-h">People.<br> Place.<br> Possibility.</h2><span class="ap-rule"></span><p class="ap-text">Architecture for a more connected and considered world.</p></div>
+<div class="vision-carousel"><div class="sq-row">
 <article class="sq"><video muted loop playsinline preload="metadata" poster="asset-dce4a9e561ff02c5.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>01 / 03</span></div><div><h3>Stone &amp; Terrain</h3><p>Natural stone shapes the rhythm of each project. Laid in deliberate courses or stacked in organic formations, it defines lines, levels and a lasting sense of place.</p></div><span class="pill">Material</span></div></article>
 <article class="sq"><video muted loop playsinline preload="metadata" poster="asset-321a5fb2c009ca70.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>02 / 03</span></div><div><h3>Tradition &amp; Innovation</h3><p>Dynamic relationships emerge where traditional materials meet contemporary design, creating tension, depth and a distinct architectural character.</p></div><span class="pill">Contrast</span></div></article>
 <article class="sq"><video muted loop playsinline preload="metadata" poster="asset-78e38e331fd8b9ff.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>03 / 03</span></div><div><h3>Natural Imperfection</h3><p>We let materials speak for themselves, embracing natural variation and texture over visually perfect finishes.</p></div><span class="pill">Craft</span></div></article>
-</div></div></section>
+
+<article class="sq vision-loop-copy" aria-hidden="true"><video muted loop playsinline preload="metadata" poster="asset-dce4a9e561ff02c5.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>01 / 03</span></div><div><h3>Stone &amp; Terrain</h3><p>Natural stone shapes the rhythm of each project. Laid in deliberate courses or stacked in organic formations, it defines lines, levels and a lasting sense of place.</p></div><span class="pill">Material</span></div></article>
+<article class="sq vision-loop-copy" aria-hidden="true"><video muted loop playsinline preload="metadata" poster="asset-321a5fb2c009ca70.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>02 / 03</span></div><div><h3>Tradition &amp; Innovation</h3><p>Dynamic relationships emerge where traditional materials meet contemporary design, creating tension, depth and a distinct architectural character.</p></div><span class="pill">Contrast</span></div></article>
+<article class="sq vision-loop-copy" aria-hidden="true"><video muted loop playsinline preload="metadata" poster="asset-78e38e331fd8b9ff.jpg" aria-hidden="true"></video><div class="sg"><div class="st"><span>Architectural Vision</span><span>03 / 03</span></div><div><h3>Natural Imperfection</h3><p>We let materials speak for themselves, embracing natural variation and texture over visually perfect finishes.</p></div><span class="pill">Craft</span></div></article>
+</div></div></div></section>
 <section class="ft-sec" id="featured" aria-label="Featured project and team"><div class="ft">
 <article class="ft-card"><div class="ft-img" role="img" aria-label="Sunlit building façade beneath a blue sky"></div>
 <div class="ft-copy"><span class="ft-eyebrow">Featured project</span><h2 class="ft-h">Place, light and human needs, transformed into unique spaces with character.</h2></div><a class="ft-link" href="selected-work.html">View Projects<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
