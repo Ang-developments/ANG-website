@@ -485,21 +485,10 @@ textarea.cx-in{resize:none;overflow:hidden}
   .ft-team { padding-top: 2rem; }
   .ft-team > .ft-btn { margin-top: clamp(1rem, 2.5vw, 2rem); }
 }
-#studio .studio-opening-video {
-  margin-block-start: -.75rem;
-  align-self: start;
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: clamp(8px, 1.1vw, 16px);
-}
-
-
 #studio:has(.studio-loop) { overflow-x: clip; }
 #studio .studio-grid:has(> .studio-loop) {
   row-gap: .75rem;
-  grid-template-areas: "title" "gallery" "copy" "media";
+  grid-template-areas: "title" "gallery" "copy";
 }
 #studio .studio-loop {
   --card-width: clamp(2.75rem, 14vw, 13rem);
@@ -632,7 +621,6 @@ textarea.cx-in{resize:none;overflow:hidden}
       <p class="studio-text">We design homes shaped by the land and light of Paros and Antiparos. Local stone, sheltered terraces and framed views connect each home to its setting.</p>
       <a class="studio-read-more" href="our-studio.html">Read more<span class="studio-sr-only"> about our studio</span></a>
     </div>
-    <video class="studio-visual studio-opening-video" src="studio-opening.mp4" aria-label="Inside the ANG studio" muted loop playsinline autoplay preload="metadata"></video>
   </div>
 </section>
 <section class="cx-sec" id="contact" aria-label="Contact"><div class="cx" id="cx">
