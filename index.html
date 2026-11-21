@@ -444,7 +444,10 @@ textarea.cx-in{resize:none;overflow:hidden}
   #vision .ap-h { font-size: clamp(.85rem, 5.8vw, 2rem); white-space: nowrap; }
   #vision .ap-h br { display: none; }
   #vision .ap-rule, #vision .ap-text { margin-inline: auto; }
-  #vision .vision-carousel { overflow-x: auto; }
+  #vision .vision-carousel {
+    margin-inline: calc(-1 * clamp(1.5rem, 8vw, 6rem));
+    overflow-x: auto;
+  }
   #vision .sq-row { display: flex; width: max-content; gap: 1rem; overflow: visible; scroll-snap-type: none; }
   #vision .sq { flex: 0 0 min(78vw, 300px); }
 }
