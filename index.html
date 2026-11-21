@@ -459,6 +459,21 @@ textarea.cx-in{resize:none;overflow:hidden}
 @keyframes vision-glide {
   to { transform: translateX(calc(-50% - .5rem)); }
 }
+
+.design-line--mobile { display: none; }
+@media (max-width: 600px) {
+  .design-line--desktop { display: none; }
+  #studio .studio-grid:has(> .design-line--mobile) {
+    grid-template-areas: "title" "design-line" "media" "copy";
+  }
+  #studio .design-line--mobile {
+    display: flex;
+    grid-area: design-line;
+    padding: 0;
+    font-size: clamp(1rem, 5.2vw, 1.9rem);
+    font-weight: 450;
+  }
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="ang-footer.css?v=no-divider"><link rel="stylesheet" href="our-studio.css">
@@ -503,7 +518,7 @@ textarea.cx-in{resize:none;overflow:hidden}
 <div class="ft-copy"><span class="ft-eyebrow">Featured project</span><h2 class="ft-h">Place, light and human needs, transformed into unique spaces with character.</h2></div><a class="ft-link" href="selected-work.html">View Projects<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
 <div class="ft-team"><h2 class="ft-th contact-title">Meet the team <em class="team-ink">behind the scene</em></h2><a class="ft-btn" href="team.html">Meet the team<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </div></section>
-<p class="design-line" aria-label="We design innovation, luxury, sustainability, enduring legacies, and Home.">
+<p class="design-line design-line--desktop" aria-label="We design innovation, luxury, sustainability, enduring legacies, and Home.">
   <span aria-hidden="true">We design</span>
   <span class="design-line-window" aria-hidden="true">
     <span class="design-line-words">
@@ -516,7 +531,19 @@ textarea.cx-in{resize:none;overflow:hidden}
     </span>
   </span>
 </p>
-<section class="sec" id="studio"><div class="studio-grid"><h2>The idea behind our studio</h2><div class="studio-copy">
+<section class="sec" id="studio"><div class="studio-grid"><h2>The idea behind our studio</h2><p class="design-line design-line--mobile" aria-label="We design innovation, luxury, sustainability, enduring legacies, and Home.">
+  <span aria-hidden="true">We design</span>
+  <span class="design-line-window" aria-hidden="true">
+    <span class="design-line-words">
+      <span>innovation</span>
+      <span>luxury</span>
+      <span>sustainability</span>
+      <span>enduring legacies</span>
+      <span>Home</span>
+      <span>innovation</span>
+    </span>
+  </span>
+</p><div class="studio-copy">
 <p class="studio-text">We design homes shaped by the land and light of Paros and Antiparos.</p>
 <p class="studio-text">Local stone, sheltered terraces and framed views connect each home to its setting.</p>
 <a class="studio-read-more" href="our-studio.html">Read more<span class="studio-sr-only"> about our studio</span></a>
