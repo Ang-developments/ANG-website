@@ -549,59 +549,48 @@ textarea.cx-in{resize:none;overflow:hidden}
 </head>
 <body>
 <style>
-.ang-opening { position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; background: #f9faf7; opacity: 0; transition: opacity .65s ease; }
-.ang-opening.is-visible { opacity: 1; }
-.ang-opening video { display: block; width: 100%; height: 100%; object-fit: contain; }
-.ang-opening button { position: absolute; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); min-height: 44px; padding: .5rem 1rem; border: 1px solid #17171455; border-radius: 999px; background: #f9faf7; color: #171714; cursor: pointer; }
+html.ang-intro-active { overflow: hidden; }
+html.ang-intro-active body > :not(.ang-opening) { opacity: 0 !important; }
+.ang-opening { position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; background: #f9faf7; transition: opacity .65s ease; }
+.ang-opening.is-ending { opacity: 0; pointer-events: none; }
+.ang-opening video { display: block; width: min(94vw, 880px, 148vh); height: auto; }
+@media (min-width: 900px) { .ang-opening video { width: min(60vw, 840px, 130vh); } }
 </style>
 <script>
 (() => {
   if (location.hash || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   try { if (sessionStorage.getItem('ang-opening-seen')) return; } catch {}
+  const root = document.documentElement;
+  root.classList.add('ang-intro-active');
   const intro = document.createElement('div');
   intro.className = 'ang-opening';
-  intro.setAttribute('role', 'dialog');
-  intro.setAttribute('aria-label', 'ANG opening animation');
   const video = document.createElement('video');
+  video.setAttribute('aria-label', 'ANG opening animation');
   video.muted = true;
   video.playsInline = true;
-  const skip = document.createElement('button');
-  skip.type = 'button';
-  skip.textContent = 'Skip intro';
-  intro.append(video, skip);
-  const startTimeout = setTimeout(finish, 1800);
-  let closeTimeout;
-  let previousOverflow;
+  intro.append(video);
+  document.body.append(intro);
   let finished = false;
+  let playbackTimeout;
+  const loadTimeout = setTimeout(finish, 4500);
   function finish() {
     if (finished) return;
     finished = true;
-    clearTimeout(startTimeout);
-    clearTimeout(closeTimeout);
+    clearTimeout(loadTimeout);
+    clearTimeout(playbackTimeout);
     video.pause();
-    if (!intro.isConnected) return;
-    intro.classList.remove('is-visible');
-    setTimeout(() => {
-      intro.remove();
-      document.body.style.overflow = previousOverflow;
-    }, 650);
+    root.classList.remove('ang-intro-active');
+    intro.classList.add('is-ending');
+    setTimeout(() => intro.remove(), 650);
   }
-  skip.addEventListener('click', finish);
-  intro.addEventListener('keydown', event => { if (event.key === 'Escape') finish(); });
   video.addEventListener('ended', finish);
   video.addEventListener('error', finish);
   video.addEventListener('playing', () => {
-    if (finished || intro.classList.contains('is-visible')) return;
-    clearTimeout(startTimeout);
+    clearTimeout(loadTimeout);
     try { sessionStorage.setItem('ang-opening-seen', '1'); } catch {}
-    previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(() => { if (!finished) intro.classList.add('is-visible'); });
-    closeTimeout = setTimeout(finish, 6500);
-  });
+    playbackTimeout = setTimeout(finish, 8500);
+  }, {once: true});
   video.src = 'ang-opening-4k.mp4';
-  intro.style.opacity = '';
-  document.body.append(intro);
   video.play().catch(finish);
 })();
 </script>
