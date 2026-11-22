@@ -548,6 +548,63 @@ textarea.cx-in{resize:none;overflow:hidden}
 <link rel="stylesheet" href="cookie-card.css"><link rel="stylesheet" href="ang-footer.css?v=no-divider"><link rel="stylesheet" href="our-studio.css">
 </head>
 <body>
+<style>
+.ang-opening { position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; background: #f9faf7; opacity: 0; transition: opacity .65s ease; }
+.ang-opening.is-visible { opacity: 1; }
+.ang-opening video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.ang-opening button { position: absolute; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); min-height: 44px; padding: .5rem 1rem; border: 1px solid #17171455; border-radius: 999px; background: #f9faf7; color: #171714; cursor: pointer; }
+</style>
+<script>
+(() => {
+  if (location.hash || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  try { if (sessionStorage.getItem('ang-opening-seen')) return; } catch {}
+  const intro = document.createElement('div');
+  intro.className = 'ang-opening';
+  intro.setAttribute('role', 'dialog');
+  intro.setAttribute('aria-label', 'ANG opening animation');
+  const video = document.createElement('video');
+  video.muted = true;
+  video.playsInline = true;
+  const skip = document.createElement('button');
+  skip.type = 'button';
+  skip.textContent = 'Skip intro';
+  intro.append(video, skip);
+  const startTimeout = setTimeout(finish, 1800);
+  let closeTimeout;
+  let previousOverflow;
+  let finished = false;
+  function finish() {
+    if (finished) return;
+    finished = true;
+    clearTimeout(startTimeout);
+    clearTimeout(closeTimeout);
+    video.pause();
+    if (!intro.isConnected) return;
+    intro.classList.remove('is-visible');
+    setTimeout(() => {
+      intro.remove();
+      document.body.style.overflow = previousOverflow;
+    }, 650);
+  }
+  skip.addEventListener('click', finish);
+  intro.addEventListener('keydown', event => { if (event.key === 'Escape') finish(); });
+  video.addEventListener('ended', finish);
+  video.addEventListener('error', finish);
+  video.addEventListener('playing', () => {
+    if (finished || intro.classList.contains('is-visible')) return;
+    clearTimeout(startTimeout);
+    try { sessionStorage.setItem('ang-opening-seen', '1'); } catch {}
+    previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => { if (!finished) intro.classList.add('is-visible'); });
+    closeTimeout = setTimeout(finish, 6500);
+  });
+  video.src = 'ang-opening-4k.mp4';
+  intro.style.opacity = '';
+  document.body.append(intro);
+  video.play().catch(finish);
+})();
+</script>
 <header class="top" id="top">
 <a class="brand" href="#home" aria-label="Angelopoulos &amp; Associates, home"><img decoding="async" src="asset-665c89d90742198f.webp" alt="Angelopoulos &amp; Associates" width="300" height="146"></a>
 <nav aria-label="Main"><ul>
