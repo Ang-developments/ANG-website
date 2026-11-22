@@ -549,11 +549,19 @@ textarea.cx-in{resize:none;overflow:hidden}
 </head>
 <body>
 <style>
-html.ang-intro-active { overflow: hidden; }
+html.ang-intro-active { overflow: hidden; background: #fff; }
 html.ang-intro-active body > :not(.ang-opening) { opacity: 0 !important; }
-.ang-opening { position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; background: #f9faf7; transition: opacity .65s ease; }
+.ang-opening { position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; background: #fff; transition: opacity .65s ease; }
 .ang-opening.is-ending { opacity: 0; pointer-events: none; }
-.ang-opening video { display: block; width: min(94vw, 880px, 148vh); height: auto; }
+.ang-opening video {
+  display: block;
+  width: min(94vw, 880px, 148vh);
+  height: auto;
+  visibility: hidden;
+  filter: grayscale(1) brightness(1.07);
+  clip-path: inset(2px);
+}
+.ang-opening.is-playing video { visibility: visible; }
 @media (min-width: 900px) { .ang-opening video { width: min(60vw, 840px, 130vh); } }
 </style>
 <script>
@@ -586,6 +594,7 @@ html.ang-intro-active body > :not(.ang-opening) { opacity: 0 !important; }
   video.addEventListener('ended', finish);
   video.addEventListener('error', finish);
   video.addEventListener('playing', () => {
+    intro.classList.add('is-playing');
     clearTimeout(loadTimeout);
     try { sessionStorage.setItem('ang-opening-seen', '1'); } catch {}
     playbackTimeout = setTimeout(finish, 8500);
