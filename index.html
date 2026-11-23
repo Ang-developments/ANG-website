@@ -563,8 +563,12 @@ html.ang-intro-active body > :not(.ang-opening) { opacity: 0 !important; }
   width: min(94vw, 880px, 148vh);
   height: auto;
   visibility: hidden;
-  filter: grayscale(1) brightness(1.07);
-  clip-path: inset(2px);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #fff;
+  filter: grayscale(1) brightness(1.12);
+  clip-path: inset(3px);
 }
 .ang-opening.is-playing video { visibility: visible; }
 @media (min-width: 900px) { .ang-opening video { width: min(60vw, 840px, 130vh); } }
@@ -581,6 +585,9 @@ html.ang-intro-active body > :not(.ang-opening) { opacity: 0 !important; }
   video.setAttribute('aria-label', 'ANG opening animation');
   video.muted = true;
   video.playsInline = true;
+  video.controls = false;
+  video.defaultPlaybackRate = 1.15;
+  video.playbackRate = 1.15;
   intro.append(video);
   document.body.append(intro);
   let finished = false;
